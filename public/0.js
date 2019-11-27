@@ -56,10 +56,36 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Articles',
   data: function data() {
     return {
+      title: '',
+      body: '',
       currentPage: 1,
       perPage: 5,
       articles: []
     };
+  },
+  methods: {
+    addArticle: function addArticle() {
+      var _this = this;
+
+      var formData = new FormData();
+      formData.append('title', this.title);
+      formData.append('body', this.body);
+      axios.post('/api/articles', formData).then(function (response) {
+        _this.articles.push(response.data);
+      });
+    },
+    deleteArticle: function deleteArticle(id) {
+      var _this2 = this;
+
+      axios({
+        method: 'delete',
+        url: '/api/articles/' + id
+      }).then(function (response) {
+        _this2.articles.pop(function (item) {
+          return item.id = response.data;
+        });
+      });
+    }
   },
   computed: {
     lists: function lists() {
@@ -70,10 +96,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this3 = this;
 
     axios.get('/api/articles').then(function (response) {
-      _this.articles = response.data;
+      _this3.articles = response.data;
     });
   }
 });
@@ -101,7 +127,77 @@ var render = function() {
         "div",
         { staticClass: "p-1" },
         [
-          _vm._m(0),
+          _c(
+            "form",
+            {
+              staticClass: "form-group",
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.addArticle($event)
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "form-group" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.title,
+                      expression: "title"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "title",
+                    placeholder: "Input title"
+                  },
+                  domProps: { value: _vm.title },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.title = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.body,
+                      expression: "body"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "body", rows: "3", placeholder: "Input body" },
+                  domProps: { value: _vm.body },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.body = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ]
+          ),
           _vm._v(" "),
           _c("b-pagination", {
             attrs: {
@@ -132,7 +228,30 @@ var render = function() {
                   _vm._v(" "),
                   _c("small", [_vm._v(_vm._s(article.created_at))]),
                   _vm._v(" "),
-                  _vm._m(1, true)
+                  _c("div", { staticClass: "text-right" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        attrs: { type: "button" }
+                      },
+                      [_vm._v("Success")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteArticle(article.id)
+                          }
+                        }
+                      },
+                      [_vm._v("Delete")]
+                    )
+                  ])
                 ])
               ])
             ])
@@ -148,35 +267,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "title" } }, [
-          _c("h4", [_vm._v("Titile")])
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", id: "title", placeholder: "Input title" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: { id: "body", rows: "3", placeholder: "Input body" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-right" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_vm._v("Add")]
-        )
-      ])
+    return _c("label", { attrs: { for: "title" } }, [
+      _c("h4", [_vm._v("Titile")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])])
   },
   function() {
     var _vm = this
@@ -185,14 +284,8 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text-right" }, [
       _c(
         "button",
-        { staticClass: "btn btn-warning", attrs: { type: "button" } },
-        [_vm._v("Success")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-danger", attrs: { type: "button" } },
-        [_vm._v("Danger")]
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Add")]
       )
     ])
   }

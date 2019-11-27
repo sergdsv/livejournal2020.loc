@@ -2,18 +2,18 @@
     <div class="container col-md-4 pt-3">
         <div class="card">
             <div class="p-1">
-            <form class="form-group">
+            <form @submit.prevent="addArticle" class="form-group">
                 <div class="form-group">
                     <label for="title"><h4>Titile</h4></label>
-                    <input type="text" class="form-control" id="title" placeholder="Input title">
+                    <input type="text" v-model="title" class="form-control" id="title" placeholder="Input title">
                 </div>
 
                 <div class="form-group">
                     <label for="body"><h4>Body</h4></label>
-                    <textarea class="form-control" id="body" rows="3" placeholder="Input body"></textarea>
+                    <textarea class="form-control" v-model="body" id="body" rows="3" placeholder="Input body"></textarea>
                 </div>
                 <div class="text-right">
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </form>
 
@@ -31,7 +31,7 @@
                         <small>{{ article.created_at }}</small>
                         <div class="text-right">
                             <button type="button" class="btn btn-warning">Success</button>
-                            <button type="button" class="btn btn-danger">Danger</button>
+                            <button type="button" @click="deleteArticle(article.id)" class="btn btn-danger">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -47,14 +47,34 @@
 
         data(){
             return{
+                title: '',
+                body: '',
                 currentPage: 1,
                 perPage: 5,
                 articles: [],
             }
         },
+        methods: {
+            addArticle(){
+                let formData = new FormData();
+                formData.append('title', this.title);
+                formData.append('body', this.body);
+                axios.post('/api/articles', formData)
+                    .then(response => {
+                        this.articles.push(response.data);
+                    })
+            },
+            deleteArticle(id){
+                axios({method: 'delete', url: '/api/articles/' + id })
+                    .then(response => {
+                        this.articles.pop(item => {
+                            return item.id = response.data
+                        })
+                    })
+            }
+        },
         computed: {
             lists () {
-
                 return this.articles.slice(
                     (this.currentPage - 1) * this.perPage,
                     this.currentPage * this.perPage

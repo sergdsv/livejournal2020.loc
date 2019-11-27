@@ -38,7 +38,12 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $article = new Article();
+        $article->title = $request->title;
+        $article->body = $request->body;
+        $article->save();
+
+        return $article;
     }
 
     /**
@@ -83,6 +88,6 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $id;
     }
 }
