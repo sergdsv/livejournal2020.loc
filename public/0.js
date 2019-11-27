@@ -125,7 +125,7 @@ var render = function() {
     _c("div", { staticClass: "card" }, [
       _c(
         "div",
-        { staticClass: "p-1" },
+        { staticClass: "p-3" },
         [
           _c(
             "form",
@@ -235,7 +235,7 @@ var render = function() {
                         staticClass: "btn btn-warning",
                         attrs: { type: "button" }
                       },
-                      [_vm._v("Success")]
+                      [_vm._v("Edit")]
                     ),
                     _vm._v(" "),
                     _c(

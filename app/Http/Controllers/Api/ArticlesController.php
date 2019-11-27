@@ -88,6 +88,8 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
+        Article::find($id)->delete();
+
         return $id;
     }
 }

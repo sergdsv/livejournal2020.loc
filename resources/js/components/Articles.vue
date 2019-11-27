@@ -1,7 +1,7 @@
 <template>
     <div class="container col-md-4 pt-3">
         <div class="card">
-            <div class="p-1">
+            <div class="p-3">
             <form @submit.prevent="addArticle" class="form-group">
                 <div class="form-group">
                     <label for="title"><h4>Titile</h4></label>
@@ -30,7 +30,7 @@
                         <p class="card-text">{{ article.body }}</p>
                         <small>{{ article.created_at }}</small>
                         <div class="text-right">
-                            <button type="button" class="btn btn-warning">Success</button>
+                            <button type="button" class="btn btn-warning">Edit</button>
                             <button type="button" @click="deleteArticle(article.id)" class="btn btn-danger">Delete</button>
                         </div>
                     </div>
