@@ -9,7 +9,7 @@
  
  Clone the repository
  
-     git clone git@github.com:sergdsv/livejournal2020.loc.git
+     git clone https://github.com/sergdsv/livejournal2020.loc.git
  
  Switch to the repo folder
  
@@ -32,9 +32,27 @@
  
      php artisan migrate
  
- Start the local development server
+ The Bootstrap and Vue scaffolding provided by Laravel is located in the laravel/ui Composer package, which may be installed using Composer:
  
-     php artisan serve
+    composer require laravel/ui --dev
+    
+ Once the laravel/ui package has been installed, you may install the frontend scaffolding using the ui Artisan command:
+ 
+    php artisan ui bootstrap
+    php artisan ui vue
+
+After installing the laravel/ui Composer package and generating the frontend scaffolding, Laravel's package.json file will include the bootstrap package to help you get started prototyping your application's frontend using Bootstrap. However, feel free to add or remove packages from the package.json file as needed for your own application. You are not required to use the Bootstrap framework to build your Laravel application - it is provided as a good starting point for those who choose to use it.
+
+Before compiling your CSS, install your project's frontend dependencies using the Node package manager (NPM):
+
+    npm install
+Once the dependencies have been installed using npm install, you can compile your SASS files to plain CSS using Laravel Mix. The npm run dev command will process the instructions in your webpack.mix.js file. Typically, your compiled CSS will be placed in the public/css directory:
+
+    npm run dev
+ 
+Start the local development server
+    
+    php artisan serve
  
  You can now access the server at http://localhost:8000
 
