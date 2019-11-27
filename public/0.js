@@ -32,9 +32,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Articles',
+  data: function data() {
+    return {
+      currentPage: 1,
+      perPage: 5,
+      articles: []
+    };
+  },
+  computed: {
+    lists: function lists() {
+      return this.articles.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
+    },
+    totalRows: function totalRows() {
+      return this.articles.length;
+    }
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    var _this = this;
+
+    axios.get('/api/articles').then(function (response) {
+      _this.articles = response.data;
+    });
   }
 });
 
@@ -55,49 +95,105 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container col-md-4 pt-3" }, [
+    _c("div", { staticClass: "card" }, [
+      _c(
+        "div",
+        { staticClass: "p-1" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("b-pagination", {
+            attrs: {
+              "total-rows": _vm.totalRows,
+              "per-page": _vm.perPage,
+              "aria-controls": "my-table"
+            },
+            model: {
+              value: _vm.currentPage,
+              callback: function($$v) {
+                _vm.currentPage = $$v
+              },
+              expression: "currentPage"
+            }
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.lists, function(article, index) {
+            return _c("div", { key: index, attrs: { id: "my-table" } }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h4", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(article.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text" }, [
+                    _vm._v(_vm._s(article.body))
+                  ]),
+                  _vm._v(" "),
+                  _c("small", [_vm._v(_vm._s(article.created_at))]),
+                  _vm._v(" "),
+                  _vm._m(1, true)
+                ])
+              ])
+            ])
+          })
+        ],
+        2
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container col-md-4" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "Some quick example text to build on the card title and make up the bulk of the card's content."
-            )
-          ])
-        ])
+    return _c("form", { staticClass: "form-group" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "title" } }, [
+          _c("h4", [_vm._v("Titile")])
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", id: "title", placeholder: "Input title" }
+        })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "Some quick example text to build on the card title and make up the bulk of the card's content."
-            )
-          ])
-        ])
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])]),
+        _vm._v(" "),
+        _c("textarea", {
+          staticClass: "form-control",
+          attrs: { id: "body", rows: "3", placeholder: "Input body" }
+        })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "Some quick example text to build on the card title and make up the bulk of the card's content."
-            )
-          ])
-        ])
+      _c("div", { staticClass: "text-right" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "button" } },
+          [_vm._v("Add")]
+        )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-right" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-warning", attrs: { type: "button" } },
+        [_vm._v("Success")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-danger", attrs: { type: "button" } },
+        [_vm._v("Danger")]
+      )
     ])
   }
 ]

@@ -12,7 +12,6 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
-
         $faker = Faker::create('App\Article');
 
         for ($i = 1; $i < 20; $i++ ) {
