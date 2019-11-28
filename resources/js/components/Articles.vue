@@ -30,7 +30,7 @@
                             <p class="card-text">{{ article.body }}</p>
                             <small>{{ article.created_at }}</small>
                             <div class="text-right">
-                                <button type="button" class="btn btn-warning">Edit</button>
+                                <button type="button" @click="editArticle(article.id)" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Edit</button>
                                 <button type="button" @click="deleteArticle(article.id)" class="btn btn-danger">Delete</button>
                             </div>
                         </div>
@@ -38,6 +38,39 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit article</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form @submit.prevent="addArticle" class="form-group">
+                            <div class="form-group">
+                                <label for="title"><h4>Titile</h4></label>
+                                <input type="text" v-model="titleEdit" value="titleEdit" class="form-control" id="title" placeholder="Input title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="body"><h4>Body</h4></label>
+                                <textarea class="form-control" v-model="bodyEdit" id="body" rows="3" placeholder="Input body"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </template>
 
@@ -51,6 +84,8 @@
                 currentPage: 1,
                 perPage: 5,
                 articles: [],
+                titleEdit: '',
+                bodyEdit: ''
             }
         },
         methods: {
@@ -72,6 +107,12 @@
                         this.articles = this.articles.filter(item =>
                            item.id !== response.data)
                     })
+            },
+            editArticle(id){
+                let article = this.articles.filter(item =>
+                    item.id === id);
+                 this.titleEdit = article[0].title
+                this.bodyEdit = article[0].body;
             }
         },
         computed: {
