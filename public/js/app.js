@@ -67442,7 +67442,7 @@ var render = function() {
           _vm._v(" "),
           _vm._l(_vm.lists, function(article, index) {
             return _c("div", { key: index, attrs: { id: "my-table" } }, [
-              _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card m-1" }, [
                 _c("div", { staticClass: "card-body" }, [
                   _c("h4", { staticClass: "card-title" }, [
                     _vm._v(_vm._s(article.title))

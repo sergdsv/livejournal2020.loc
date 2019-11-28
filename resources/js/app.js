@@ -24,9 +24,6 @@ const router = new VueRouter({
     ],
 });
 
-
-
-
 import BootstrapVue from 'bootstrap-vue';
 
 Vue.use(BootstrapVue);

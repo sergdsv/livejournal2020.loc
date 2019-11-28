@@ -24,7 +24,7 @@
                     aria-controls="my-table"
                 ></b-pagination>
                 <div id="my-table" v-for="(article, index) in lists" :key="index">
-                    <div class="card">
+                    <div class="card m-1">
                         <div class="card-body">
                             <h4 class="card-title">{{ article.title }}</h4>
                             <hr class="my-4">
