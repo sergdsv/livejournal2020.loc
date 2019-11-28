@@ -10,7 +10,7 @@
 
                     <div class="form-group">
                         <label for="body"><h4>Body</h4></label>
-                        <textarea class="form-control" v-model="body" id="body" rows="3" placeholder="Input body" required></textarea>
+                        <textarea class="form-control" v-model="body" id="body" rows="4" placeholder="Input body" required></textarea>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">Add</button>
@@ -27,11 +27,14 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">{{ article.title }}</h4>
+                            <hr class="my-4">
                             <p class="card-text">{{ article.body }}</p>
-                            <small>{{ article.created_at }}</small>
-                            <div class="text-right">
-                                <button type="button" @click="editArticle(article.id)" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Edit</button>
-                                <button type="button" @click="deleteArticle(article.id)" class="btn btn-danger">Delete</button>
+                            <div class="d-flex justify-content-between">
+                                    <small class="pt-3">{{ article.created_at }}</small>
+                                <div>
+                                    <button type="button" @click="editArticle(article.id)" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                                    <button type="button" @click="deleteArticle(article.id)" class="btn btn-danger">Delete</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -98,7 +101,7 @@
                         this.articles.unshift(response.data);
                         this.title = '';
                         this.body = '';
-                        this.$bvModal.msgBoxOk('New article successfully added!', {
+                        this.$bvModal.msgBoxOk('New article successfully added!!!', {
                             title: 'Add successfully!',
                             okVariant: 'success',
                             okTitle: 'OK',

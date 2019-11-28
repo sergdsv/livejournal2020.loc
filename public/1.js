@@ -85,6 +85,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Articles',
   data: function data() {
@@ -111,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.title = '';
         _this.body = '';
 
-        _this.$bvModal.msgBoxOk('New article successfully added!', {
+        _this.$bvModal.msgBoxOk('New article successfully added!!!', {
           title: 'Add successfully!',
           okVariant: 'success',
           okTitle: 'OK',
@@ -300,7 +303,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     id: "body",
-                    rows: "3",
+                    rows: "4",
                     placeholder: "Input body",
                     required: ""
                   },
@@ -343,44 +346,50 @@ var render = function() {
                     _vm._v(_vm._s(article.title))
                   ]),
                   _vm._v(" "),
+                  _c("hr", { staticClass: "my-4" }),
+                  _vm._v(" "),
                   _c("p", { staticClass: "card-text" }, [
                     _vm._v(_vm._s(article.body))
                   ]),
                   _vm._v(" "),
-                  _c("small", [_vm._v(_vm._s(article.created_at))]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "text-right" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-warning",
-                        attrs: {
-                          type: "button",
-                          "data-toggle": "modal",
-                          "data-target": "#exampleModal"
-                        },
-                        on: {
-                          click: function($event) {
-                            return _vm.editArticle(article.id)
-                          }
-                        }
-                      },
-                      [_vm._v("Edit")]
-                    ),
+                  _c("div", { staticClass: "d-flex justify-content-between" }, [
+                    _c("small", { staticClass: "pt-3" }, [
+                      _vm._v(_vm._s(article.created_at))
+                    ]),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteArticle(article.id)
+                    _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-warning",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#exampleModal"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.editArticle(article.id)
+                            }
                           }
-                        }
-                      },
-                      [_vm._v("Delete")]
-                    )
+                        },
+                        [_vm._v("Edit")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteArticle(article.id)
+                            }
+                          }
+                        },
+                        [_vm._v("Delete")]
+                      )
+                    ])
                   ])
                 ])
               ])
