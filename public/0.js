@@ -72,17 +72,21 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('body', this.body);
       axios.post('/api/articles', formData).then(function (response) {
         _this.articles.push(response.data);
+
+        _this.title = '';
+        _this.body = '';
       });
     },
     deleteArticle: function deleteArticle(id) {
       var _this2 = this;
 
+      alert("Are you sure you want to delete article?");
       axios({
         method: 'delete',
         url: '/api/articles/' + id
       }).then(function (response) {
-        _this2.articles.pop(function (item) {
-          return item.id = response.data;
+        _this2.articles = _this2.articles.filter(function (item) {
+          return item.id !== response.data;
         });
       });
     }
@@ -121,7 +125,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container col-md-4 pt-3" }, [
+  return _c("div", { staticClass: "container col-md-5 pt-3" }, [
     _c("div", { staticClass: "card" }, [
       _c(
         "div",
