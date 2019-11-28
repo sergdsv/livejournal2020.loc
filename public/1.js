@@ -270,7 +270,8 @@ var render = function() {
                   attrs: {
                     type: "text",
                     id: "title",
-                    placeholder: "Input title"
+                    placeholder: "Input title",
+                    required: ""
                   },
                   domProps: { value: _vm.title },
                   on: {
@@ -297,7 +298,12 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { id: "body", rows: "3", placeholder: "Input body" },
+                  attrs: {
+                    id: "body",
+                    rows: "3",
+                    placeholder: "Input body",
+                    required: ""
+                  },
                   domProps: { value: _vm.body },
                   on: {
                     input: function($event) {

@@ -5,12 +5,12 @@
                 <form @submit.prevent="addArticle" class="form-group">
                     <div class="form-group">
                         <label for="title"><h4>Titile</h4></label>
-                        <input type="text" v-model="title" class="form-control" id="title" placeholder="Input title">
+                        <input type="text" v-model="title" class="form-control" id="title" placeholder="Input title" required>
                     </div>
 
                     <div class="form-group">
                         <label for="body"><h4>Body</h4></label>
-                        <textarea class="form-control" v-model="body" id="body" rows="3" placeholder="Input body"></textarea>
+                        <textarea class="form-control" v-model="body" id="body" rows="3" placeholder="Input body" required></textarea>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">Add</button>
