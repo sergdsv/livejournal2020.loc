@@ -31,6 +31,10 @@
  Run the database migrations (**Set the database connection in .env before migrating**)
  
      php artisan migrate
+     
+ Run the database seed to table articles
+     
+     php artisan db:seed --class=ArticlesTableSeeder
  
  The Bootstrap and Vue scaffolding provided by Laravel is located in the laravel/ui Composer package, which may be installed using Composer:
  

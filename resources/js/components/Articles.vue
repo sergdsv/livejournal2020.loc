@@ -85,7 +85,7 @@
                 perPage: 5,
                 articles: [],
                 titleEdit: '',
-                bodyEdit: ''
+                bodyEdit: '',
             }
         },
         methods: {
@@ -95,18 +95,40 @@
                 formData.append('body', this.body);
                 axios.post('/api/articles', formData)
                     .then(response => {
-                        this.articles.push(response.data);
+                        this.articles.unshift(response.data);
                         this.title = '';
                         this.body = '';
+                        this.$bvModal.msgBoxOk('New article successfully added!', {
+                            title: 'Add successfully!',
+                            okVariant: 'success',
+                            okTitle: 'OK',
+                            footerClass: 'p-2',
+                            hideHeaderClose: false,
+                            centered: true
+                        })
                     })
             },
             deleteArticle(id){
-                alert("Are you sure you want to delete article?");
-                axios({method: 'delete', url: '/api/articles/' + id })
-                    .then(response => {
-                        this.articles = this.articles.filter(item =>
-                           item.id !== response.data)
-                    })
+                this.$bvModal.msgBoxConfirm('Please confirm that you want to delete everything.', {
+                    title: 'Please Confirm',
+
+                    okVariant: 'danger',
+                    okTitle: 'YES',
+                    cancelTitle: 'NO',
+                    footerClass: 'p-2',
+                    hideHeaderClose: false,
+                    centered: true
+                })
+                .then(value => {
+                     if (value){
+                         axios({method: 'delete', url: '/api/articles/' + id })
+                             .then(response => {
+                                 this.articles = this.articles.filter(item =>
+                                     item.id !== response.data)
+                             })
+                     }
+                });
+
             },
             editArticle(id){
                 let article = this.articles.filter(item =>
@@ -135,4 +157,9 @@
     }
 </script>
 
+<style>
+    .modal-backdrop {
+        background: rgba(0, 0, 0, 0.5);
+    }
+</style>
 
