@@ -50,6 +50,9 @@
                     aria-controls="my-table"
                 ></b-pagination>
             </div>
+            <div class="card-footer">
+                <h5 class="text-right"><font-awesome-icon icon="copyright"></font-awesome-icon> LiveJournal2020</h5>
+            </div>
         </div>
 
         <!-- Modal -->

@@ -11632,6 +11632,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Articles',
   data: function data() {
@@ -77279,7 +77282,19 @@ var render = function() {
             })
           ],
           1
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-footer" }, [
+          _c(
+            "h5",
+            { staticClass: "text-right" },
+            [
+              _c("font-awesome-icon", { attrs: { icon: "copyright" } }),
+              _vm._v(" LiveJournal2020")
+            ],
+            1
+          )
+        ])
       ],
       2
     ),
@@ -92556,7 +92571,7 @@ Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEdit"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faCopyright"]);
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeIcon"]);
 /**
  * The following block of code may be used to automatically register your
