@@ -37,8 +37,6 @@ library.add(faEdit, faCopyright);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-Vue.config.productionTip = false;
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
