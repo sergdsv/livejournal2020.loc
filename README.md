@@ -72,7 +72,7 @@ Example request body:
     {
         "id": 91,
         "title": "Labore unde magni totam distinctio ab officia quia.",
-        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur. Laborum eos mollitia magni natus et. Exercitationem dolorem corrupti voluptas exercitationem aut magni quisquam.",
+        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur.",
         "created_at": "2019-11-28 13:28:23",
         "updated_at": "2019-11-29 13:25:12"
     },
@@ -97,7 +97,7 @@ Example request body:
     {
         "id": 91,
         "title": "Labore unde magni totam distinctio ab officia quia.",
-        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur. Laborum eos mollitia magni natus et. Exercitationem dolorem corrupti voluptas exercitationem aut magni quisquam.",
+        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur.",
         "created_at": "2019-11-28 13:28:23",
         "updated_at": "2019-11-29 13:25:12"
     }
@@ -116,7 +116,7 @@ Required fields: `id`, `title`, `body`, `created_at`, `updated_at`
 [
     {
         "title": "Labore unde magni totam distinctio ab officia quia.",
-        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur. Laborum eos mollitia magni natus et. Exercitationem dolorem corrupti voluptas exercitationem aut magni quisquam.",
+        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur.",
     }
 ]
 ```
@@ -129,7 +129,7 @@ Required fields: `title`, `body`
 [
     {
         "title": "Labore unde magni totam distinctio ab officia quia.",
-        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur. Laborum eos mollitia magni natus et. Exercitationem dolorem corrupti voluptas exercitationem aut magni quisquam.",
+        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur.",
     }
 ]
 ```
