@@ -50,7 +50,7 @@
                 ></b-pagination>
             </div>
             <div class="card-footer">
-                <h5 class="text-right"><font-awesome-icon icon="copyright"></font-awesome-icon> LiveJournal2020</h5>
+                <h5 class="text-right"><font-awesome-icon :icon="['far', 'copyright']"></font-awesome-icon> LiveJournal2020</h5>
             </div>
         </div>
         <!-- Modal -->

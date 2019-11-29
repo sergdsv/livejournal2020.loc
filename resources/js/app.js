@@ -29,13 +29,15 @@ import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue);
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEdit, faCopyright } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.add(faEdit, faCopyright);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
+Vue.config.productionTip = false;
 
 /**
  * The following block of code may be used to automatically register your
