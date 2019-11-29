@@ -1924,6 +1924,7 @@ __webpack_require__.r(__webpack_exports__);
       currentPage: 1,
       perPage: 5,
       articles: [],
+      idEdit: '',
       titleEdit: '',
       bodyEdit: ''
     };
@@ -1982,6 +1983,33 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.titleEdit = article[0].title;
       this.bodyEdit = article[0].body;
+      this.idEdit = id;
+    },
+    updateArticle: function updateArticle() {
+      var _this3 = this;
+
+      var articleId = this.articles.findIndex(function (item) {
+        return item.id === _this3.idEdit;
+      });
+      this.articles[articleId].title = this.titleEdit;
+      this.articles[articleId].body = this.bodyEdit;
+      axios({
+        method: 'put',
+        url: '/api/articles/' + this.idEdit,
+        data: {
+          title: this.titleEdit,
+          body: this.bodyEdit
+        }
+      }).then(function (response) {
+        _this3.$bvModal.msgBoxOk('Article successfully edited!!!', {
+          title: 'Edit successfully!',
+          okVariant: 'success',
+          okTitle: 'OK',
+          footerClass: 'p-2',
+          hideHeaderClose: false,
+          centered: true
+        });
+      });
     }
   },
   computed: {
@@ -1993,10 +2021,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this4 = this;
 
     axios.get('/api/articles').then(function (response) {
-      _this3.articles = response.data;
+      _this4.articles = response.data;
     });
   }
 });
@@ -67598,7 +67626,31 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(6)
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", "data-dismiss": "modal" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.updateArticle($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Save changes")]
+                )
+              ])
             ])
           ]
         )
@@ -67671,27 +67723,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("Save changes")]
-      )
-    ])
   }
 ]
 render._withStripped = true

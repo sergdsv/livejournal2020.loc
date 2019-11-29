@@ -65,7 +65,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button @click.prevent="updateArticle" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -85,6 +85,7 @@
                 currentPage: 1,
                 perPage: 5,
                 articles: [],
+                idEdit: '',
                 titleEdit: '',
                 bodyEdit: '',
             }
@@ -134,8 +135,29 @@
             editArticle(id){
                 let article = this.articles.filter(item =>
                     item.id === id);
-                this.titleEdit = article[0].title
+                this.titleEdit = article[0].title;
                 this.bodyEdit = article[0].body;
+                this.idEdit = id
+            },
+            updateArticle(){
+                let articleId = this.articles.findIndex(item =>
+                    item.id === this.idEdit);
+                this.articles[articleId].title = this.titleEdit;
+                this.articles[articleId].body = this.bodyEdit;
+                axios({method: 'put', url: '/api/articles/' + this.idEdit, data: {
+                        title: this.titleEdit,
+                        body: this.bodyEdit
+                    } })
+                    .then(response => {
+                        this.$bvModal.msgBoxOk('Article successfully edited!!!', {
+                            title: 'Edit successfully!',
+                            okVariant: 'success',
+                            okTitle: 'OK',
+                            footerClass: 'p-2',
+                            hideHeaderClose: false,
+                            centered: true
+                        })
+                    })
             }
         },
         computed: {
