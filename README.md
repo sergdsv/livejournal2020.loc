@@ -26,8 +26,7 @@
  Generate a new application key
  
      php artisan key:generate
- 
- 
+     
  Run the database migrations (**Set the database connection in .env before migrating**)
  
      php artisan migrate
@@ -50,6 +49,7 @@ After installing the laravel/ui Composer package and generating the frontend sca
 Before compiling your CSS, install your project's frontend dependencies using the Node package manager (NPM):
 
     npm install
+    
 Once the dependencies have been installed using npm install, you can compile your SASS files to plain CSS using Laravel Mix. The npm run dev command will process the instructions in your webpack.mix.js file. Typically, your compiled CSS will be placed in the public/css directory:
 
     npm run dev
