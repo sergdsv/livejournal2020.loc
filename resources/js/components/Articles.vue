@@ -18,7 +18,6 @@
                             <button type="submit" class="btn btn-primary">Add</button>
                         </div>
                     </form>
-
                     <b-pagination
                         v-model="currentPage"
                         :total-rows="totalRows"
@@ -54,7 +53,6 @@
                 <h5 class="text-right"><font-awesome-icon icon="copyright"></font-awesome-icon> LiveJournal2020</h5>
             </div>
         </div>
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -85,8 +83,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </template>
 
@@ -154,23 +150,27 @@
                 this.idEdit = id
             },
             updateArticle(){
-                let articleId = this.articles.findIndex(item =>
-                    item.id === this.idEdit);
-                this.articles[articleId].title = this.titleEdit;
-                this.articles[articleId].body = this.bodyEdit;
+
                 axios({method: 'put', url: '/api/articles/' + this.idEdit, data: {
                         title: this.titleEdit,
                         body: this.bodyEdit
                     } })
                     .then(response => {
-                        this.$bvModal.msgBoxOk('Article successfully edited!!!', {
-                            title: 'Edit successfully!',
-                            okVariant: 'success',
-                            okTitle: 'OK',
-                            footerClass: 'p-2',
-                            hideHeaderClose: false,
-                            centered: true
-                        })
+                        if(response.data){
+                            let articleId = this.articles.findIndex(item =>
+                                item.id === this.idEdit);
+                            this.articles[articleId].title = this.titleEdit;
+                            this.articles[articleId].body = this.bodyEdit;
+                            this.$bvModal.msgBoxOk('Article successfully edited!!!', {
+                                title: 'Edit successfully!',
+                                okVariant: 'success',
+                                okTitle: 'OK',
+                                footerClass: 'p-2',
+                                hideHeaderClose: false,
+                                centered: true
+                            })
+                        }
+
                     })
             }
         },

@@ -11631,10 +11631,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Articles',
   data: function data() {
@@ -11708,11 +11704,6 @@ __webpack_require__.r(__webpack_exports__);
     updateArticle: function updateArticle() {
       var _this3 = this;
 
-      var articleId = this.articles.findIndex(function (item) {
-        return item.id === _this3.idEdit;
-      });
-      this.articles[articleId].title = this.titleEdit;
-      this.articles[articleId].body = this.bodyEdit;
       axios({
         method: 'put',
         url: '/api/articles/' + this.idEdit,
@@ -11721,14 +11712,23 @@ __webpack_require__.r(__webpack_exports__);
           body: this.bodyEdit
         }
       }).then(function (response) {
-        _this3.$bvModal.msgBoxOk('Article successfully edited!!!', {
-          title: 'Edit successfully!',
-          okVariant: 'success',
-          okTitle: 'OK',
-          footerClass: 'p-2',
-          hideHeaderClose: false,
-          centered: true
-        });
+        if (response.data) {
+          var articleId = _this3.articles.findIndex(function (item) {
+            return item.id === _this3.idEdit;
+          });
+
+          _this3.articles[articleId].title = _this3.titleEdit;
+          _this3.articles[articleId].body = _this3.bodyEdit;
+
+          _this3.$bvModal.msgBoxOk('Article successfully edited!!!', {
+            title: 'Edit successfully!',
+            okVariant: 'success',
+            okTitle: 'OK',
+            footerClass: 'p-2',
+            hideHeaderClose: false,
+            centered: true
+          });
+        }
       });
     }
   },

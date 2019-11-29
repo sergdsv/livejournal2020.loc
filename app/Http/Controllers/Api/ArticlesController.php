@@ -82,6 +82,7 @@ class ArticlesController extends Controller
         $article->body = $request->input('body');
         $article->save();
 
+        return 'true';
     }
 
     /**
