@@ -68,15 +68,24 @@ Start the local development server
 
 Example request body:
 ```JSON
-{
-  "articles":{
-    "id": "1",
-    "title": "jakejake",
-    "body": "text"
-  }
-}
+[
+    {
+        "id": 91,
+        "title": "Labore unde magni totam distinctio ab officia quia.",
+        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur. Laborum eos mollitia magni natus et. Exercitationem dolorem corrupti voluptas exercitationem aut magni quisquam.",
+        "created_at": "2019-11-28 13:28:23",
+        "updated_at": "2019-11-29 13:25:12"
+    },
+    {
+        "id": 90,
+        "title": "At omnis praesentium enim dolorem.",
+        "body": "Et molestias aut laboriosam itaque consequatur. Rerum quaerat ut autem commodi.",
+        "created_at": "2019-11-28 13:28:23",
+        "updated_at": "2019-11-28 13:28:23"
+    }
+]
 ```
-Required fields: `id`, `title`, `body`
+Required fields: `id`, `title`, `body`, `created_at`, `updated_at`
 
 ### GET Single Article:
 
@@ -84,15 +93,17 @@ Required fields: `id`, `title`, `body`
 
 Example request body:
 ```JSON
-{
-  "articles":{
-    "id": "1",
-    "title": "jakejake",
-    "body": "text"
-  }
-}
+[
+    {
+        "id": 91,
+        "title": "Labore unde magni totam distinctio ab officia quia.",
+        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur. Laborum eos mollitia magni natus et. Exercitationem dolorem corrupti voluptas exercitationem aut magni quisquam.",
+        "created_at": "2019-11-28 13:28:23",
+        "updated_at": "2019-11-29 13:25:12"
+    }
+]
 ```
-Required fields: `id`, `title`, `body`
+Required fields: `id`, `title`, `body`, `created_at`, `updated_at`
 
 ### DELETE Article:
 
@@ -101,23 +112,26 @@ Required fields: `id`, `title`, `body`
 ### POST Create Article:
 
 `POST /api/article/`
-
-{
-  "article": {
-    "title": "How to train your dragon",
-    "body": "You have to believe",
-  }
-}
+```JSON
+[
+    {
+        "title": "Labore unde magni totam distinctio ab officia quia.",
+        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur. Laborum eos mollitia magni natus et. Exercitationem dolorem corrupti voluptas exercitationem aut magni quisquam.",
+    }
+]
+```
+Required fields: `title`, `body`
 
 ### PUT Update Article:
 
 `PUT /api/article/{id}`
-
-{
-  "article": {
-    "title": "How to train your dragon",
-    "body": "You have to believe",
-  }
-}
+```JSON
+[
+    {
+        "title": "Labore unde magni totam distinctio ab officia quia.",
+        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur. Laborum eos mollitia magni natus et. Exercitationem dolorem corrupti voluptas exercitationem aut magni quisquam.",
+    }
+]
+```
 
 
