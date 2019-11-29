@@ -11624,6 +11624,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Articles',
   data: function data() {
@@ -77249,7 +77257,29 @@ var render = function() {
               ])
             ])
           ])
-        })
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "p-3" },
+          [
+            _c("b-pagination", {
+              attrs: {
+                "total-rows": _vm.totalRows,
+                "per-page": _vm.perPage,
+                "aria-controls": "my-table"
+              },
+              model: {
+                value: _vm.currentPage,
+                callback: function($$v) {
+                  _vm.currentPage = $$v
+                },
+                expression: "currentPage"
+              }
+            })
+          ],
+          1
+        )
       ],
       2
     ),

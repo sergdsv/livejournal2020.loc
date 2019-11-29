@@ -42,6 +42,14 @@
                         </div>
                     </div>
                 </div>
+            <div class="p-3">
+                <b-pagination
+                    v-model="currentPage"
+                    :total-rows="totalRows"
+                    :per-page="perPage"
+                    aria-controls="my-table"
+                ></b-pagination>
+            </div>
         </div>
 
         <!-- Modal -->
