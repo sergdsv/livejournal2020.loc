@@ -7,7 +7,6 @@
                         <label for="title"><h4>Titile</h4></label>
                         <input type="text" v-model="title" class="form-control" id="title" placeholder="Input title" required>
                     </div>
-
                     <div class="form-group">
                         <label for="body"><h4>Body</h4></label>
                         <textarea class="form-control" v-model="body" id="body" rows="4" placeholder="Input body" required></textarea>
@@ -16,14 +15,13 @@
                         <button type="submit" class="btn btn-primary">Add</button>
                     </div>
                 </form>
-
                 <b-pagination
                     v-model="currentPage"
                     :total-rows="totalRows"
                     :per-page="perPage"
                     aria-controls="my-table"
                 ></b-pagination>
-                <div id="my-table" v-for="(article, index) in lists" :key="index">
+                <div v-for="(article, index) in lists" :key="index">
                     <div class="card m-1">
                         <div class="card-body">
                             <h4 class="card-title">{{ article.title }}</h4>
@@ -101,6 +99,7 @@
                         this.articles.unshift(response.data);
                         this.title = '';
                         this.body = '';
+                        this.currentPage = 1;
                         this.$bvModal.msgBoxOk('New article successfully added!!!', {
                             title: 'Add successfully!',
                             okVariant: 'success',
@@ -114,7 +113,6 @@
             deleteArticle(id){
                 this.$bvModal.msgBoxConfirm('Please confirm that you want to delete everything.', {
                     title: 'Please Confirm',
-
                     okVariant: 'danger',
                     okTitle: 'YES',
                     cancelTitle: 'NO',
@@ -136,7 +134,7 @@
             editArticle(id){
                 let article = this.articles.filter(item =>
                     item.id === id);
-                 this.titleEdit = article[0].title
+                this.titleEdit = article[0].title
                 this.bodyEdit = article[0].body;
             }
         },

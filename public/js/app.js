@@ -1915,8 +1915,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Articles',
   data: function data() {
@@ -1942,6 +1940,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.title = '';
         _this.body = '';
+        _this.currentPage = 1;
 
         _this.$bvModal.msgBoxOk('New article successfully added!!!', {
           title: 'Add successfully!',
@@ -67441,7 +67440,7 @@ var render = function() {
           }),
           _vm._v(" "),
           _vm._l(_vm.lists, function(article, index) {
-            return _c("div", { key: index, attrs: { id: "my-table" } }, [
+            return _c("div", { key: index }, [
               _c("div", { staticClass: "card m-1" }, [
                 _c("div", { staticClass: "card-body" }, [
                   _c("h4", { staticClass: "card-title" }, [
