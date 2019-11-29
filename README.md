@@ -1,4 +1,4 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"><img width="100" src="https://vuejs.org/images/logo.png" alt="Vue logo"></p>
+<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"><img width="140" src="https://vuejs.org/images/logo.png" alt="Vue logo"></p>
  
  # Getting started
  
