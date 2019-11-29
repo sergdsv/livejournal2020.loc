@@ -111,12 +111,10 @@ Required fields: `id`, `title`, `body`, `created_at`, `updated_at`
 
 `POST /api/article/`
 ```JSON
-[
-    {
-        "title": "Labore unde magni totam distinctio ab officia quia.",
-        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur.",
-    }
-]
+{
+    "title": "Labore unde magni totam distinctio ab officia quia.",
+    "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur.",
+}
 ```
 Required fields: `title`, `body`
 
@@ -124,12 +122,8 @@ Required fields: `title`, `body`
 
 `PUT /api/article/{id}`
 ```JSON
-[
-    {
-        "title": "Labore unde magni totam distinctio ab officia quia.",
-        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur.",
-    }
-]
+{
+    "title": "Labore unde magni totam distinctio ab officia quia.",
+    "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur.",
+}
 ```
-
-
