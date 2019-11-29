@@ -1,26 +1,31 @@
 <template>
     <div class="container col-md-5 pt-3">
         <div class="card">
-            <div class="p-3">
-                <form @submit.prevent="addArticle" class="form-group">
-                    <div class="form-group">
-                        <label for="title"><h4>Titile</h4></label>
-                        <input type="text" v-model="title" class="form-control" id="title" placeholder="Input title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="body"><h4>Body</h4></label>
-                        <textarea class="form-control" v-model="body" id="body" rows="4" placeholder="Input body" required></textarea>
-                    </div>
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary">Add</button>
-                    </div>
-                </form>
-                <b-pagination
-                    v-model="currentPage"
-                    :total-rows="totalRows"
-                    :per-page="perPage"
-                    aria-controls="my-table"
-                ></b-pagination>
+                <div class="card-header">
+                    <h3><font-awesome-icon icon="edit"></font-awesome-icon> LiveJournal2020</h3>
+                </div>
+                <div class="p-3">
+                    <form @submit.prevent="addArticle" class="form-group">
+                        <div class="form-group">
+                            <label for="title"><h4>Titile</h4></label>
+                            <input type="text" v-model="title" class="form-control" id="title" placeholder="Input title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="body"><h4>Body</h4></label>
+                            <textarea class="form-control" v-model="body" id="body" rows="4" placeholder="Input body" required></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </form>
+
+                    <b-pagination
+                        v-model="currentPage"
+                        :total-rows="totalRows"
+                        :per-page="perPage"
+                        aria-controls="my-table"
+                    ></b-pagination>
+                </div>
                 <div v-for="(article, index) in lists" :key="index">
                     <div class="card m-1">
                         <div class="card-body">
@@ -37,7 +42,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 
         <!-- Modal -->
@@ -130,7 +134,6 @@
                              })
                      }
                 });
-
             },
             editArticle(id){
                 let article = this.articles.filter(item =>

@@ -28,6 +28,15 @@ import BootstrapVue from 'bootstrap-vue';
 
 Vue.use(BootstrapVue);
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faEdit);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
