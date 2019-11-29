@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['namespace'=>'Api'], function() {
     Route::get('/articles', 'ArticlesController@index')->name('articles.index');
     Route::post('/articles', 'ArticlesController@store')->name('articles.store');
-//    Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
+    Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
     Route::delete('/articles/{article}', 'ArticlesController@destroy')->name('articles.destroy');
     Route::put('/articles/{article}', 'ArticlesController@update')->name('articles.update');
 });

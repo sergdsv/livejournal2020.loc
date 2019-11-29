@@ -93,15 +93,13 @@ Required fields: `id`, `title`, `body`, `created_at`, `updated_at`
 
 Example request body:
 ```JSON
-[
-    {
-        "id": 91,
-        "title": "Labore unde magni totam distinctio ab officia quia.",
-        "body": "Esse accusantium ut ut incidunt. Est libero pariatur magnam qui omnis voluptate aspernatur.",
-        "created_at": "2019-11-28 13:28:23",
-        "updated_at": "2019-11-29 13:25:12"
-    }
-]
+{
+    "id": 5,
+    "title": "Sit doloribus eius laudantium sint ut quis accusantium.",
+    "body": "Dignissimos quis atque voluptatibus. Dicta adipisci autem tempora aspernatur magni facilis quidem.",
+    "created_at": "2019-11-27 10:38:21",
+    "updated_at": "2019-11-27 10:38:21"
+}
 ```
 Required fields: `id`, `title`, `body`, `created_at`, `updated_at`
 
