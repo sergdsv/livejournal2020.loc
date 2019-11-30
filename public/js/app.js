@@ -78434,7 +78434,7 @@ var render = function() {
                         attrs: {
                           type: "text",
                           value: "titleEdit",
-                          id: "title",
+                          id: "editTitle",
                           placeholder: "Input title"
                         },
                         domProps: { value: _vm.titleEdit },
@@ -78463,7 +78463,7 @@ var render = function() {
                         ],
                         staticClass: "form-control",
                         attrs: {
-                          id: "body",
+                          id: "editBody",
                           rows: "3",
                           placeholder: "Input body"
                         },
@@ -78520,7 +78520,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "title" } }, [
-      _c("h4", [_vm._v("Titile")])
+      _c("h4", [_vm._v("Title")])
     ])
   },
   function() {
@@ -78570,7 +78570,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "title" } }, [
+    return _c("label", { attrs: { for: "editTitle" } }, [
       _c("h4", [_vm._v("Titile")])
     ])
   },
@@ -78578,7 +78578,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])])
+    return _c("label", { attrs: { for: "editBody" } }, [
+      _c("h4", [_vm._v("Body")])
+    ])
   }
 ]
 render._withStripped = true

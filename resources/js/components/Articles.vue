@@ -7,7 +7,7 @@
                 <div class="p-3">
                     <form @submit.prevent="addArticle" class="form-group">
                         <div class="form-group">
-                            <label for="title"><h4>Titile</h4></label>
+                            <label for="title"><h4>Title</h4></label>
                             <input type="text" v-model="title" class="form-control" id="title" placeholder="Input title" required>
                         </div>
                         <div class="form-group">
@@ -66,13 +66,13 @@
                     <div class="modal-body">
                         <form @submit.prevent="addArticle" class="form-group">
                             <div class="form-group">
-                                <label for="title"><h4>Titile</h4></label>
-                                <input type="text" v-model="titleEdit" value="titleEdit" class="form-control" id="title" placeholder="Input title">
+                                <label for="editTitle"><h4>Titile</h4></label>
+                                <input type="text" v-model="titleEdit" value="titleEdit" class="form-control" id="editTitle" placeholder="Input title">
                             </div>
 
                             <div class="form-group">
-                                <label for="body"><h4>Body</h4></label>
-                                <textarea class="form-control" v-model="bodyEdit" id="body" rows="3" placeholder="Input body"></textarea>
+                                <label for="editBody"><h4>Body</h4></label>
+                                <textarea class="form-control" v-model="bodyEdit" id="editBody" rows="3" placeholder="Input body"></textarea>
                             </div>
                         </form>
                     </div>
