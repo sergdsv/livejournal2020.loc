@@ -12828,8 +12828,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this4 = this;
 
     axios.get('/api/articles').then(function (response) {
-      _this4.articles = response.data; // this.articles = this.articles.data
-      // console.log(this.articles)
+      _this4.articles = response.data;
     });
   }
 });
@@ -78497,7 +78496,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "btn btn-primary",
-                    attrs: { type: "button", "data-dismiss": "modal" },
+                    attrs: { type: "submit", "data-dismiss": "modal" },
                     on: {
                       click: function($event) {
                         $event.preventDefault()

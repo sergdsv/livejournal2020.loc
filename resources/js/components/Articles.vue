@@ -78,7 +78,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button @click.prevent="updateArticle" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                        <button @click.prevent="updateArticle" type="submit" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -189,8 +189,6 @@
                 .get('/api/articles')
                 .then(response => {
                     this.articles = response.data
-                    // this.articles = this.articles.data
-                    // console.log(this.articles)
                 });
         },
     }
