@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Article;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ArticleResource;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -15,9 +16,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderBy('id', 'desc')->get();
-
-        return $articles;
+        return ArticleResource::collection(Article::orderBy('id', 'desc')->get());
     }
 
     /**
@@ -32,7 +31,6 @@ class ArticlesController extends Controller
         $article->title = $request->title;
         $article->body = $request->body;
         $article->save();
-
         return $article;
     }
 
@@ -43,18 +41,6 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        $article = Article::find($id);
-        return $article;
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }
@@ -85,7 +71,6 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         Article::find($id)->delete();
-
         return $id;
     }
 }

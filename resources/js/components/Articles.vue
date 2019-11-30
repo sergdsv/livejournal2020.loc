@@ -189,6 +189,8 @@
                 .get('/api/articles')
                 .then(response => {
                     this.articles = response.data
+                    // this.articles = this.articles.data
+                    // console.log(this.articles)
                 });
         },
     }

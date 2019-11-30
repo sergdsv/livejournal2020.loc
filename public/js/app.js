@@ -12828,7 +12828,8 @@ __webpack_require__.r(__webpack_exports__);
     var _this4 = this;
 
     axios.get('/api/articles').then(function (response) {
-      _this4.articles = response.data;
+      _this4.articles = response.data; // this.articles = this.articles.data
+      // console.log(this.articles)
     });
   }
 });
