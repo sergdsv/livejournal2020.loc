@@ -64,7 +64,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form @submit.prevent="addArticle" class="form-group">
+                        <form class="form-group">
                             <div class="form-group">
                                 <label for="editTitle"><h4>Titile</h4></label>
                                 <input type="text" v-model="titleEdit" value="titleEdit" class="form-control" id="editTitle" placeholder="Input title">

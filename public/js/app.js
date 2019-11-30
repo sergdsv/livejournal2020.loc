@@ -78406,80 +78406,68 @@ var render = function() {
               _vm._m(3),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _c(
-                  "form",
-                  {
-                    staticClass: "form-group",
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.addArticle($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.titleEdit,
-                            expression: "titleEdit"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          value: "titleEdit",
-                          id: "editTitle",
-                          placeholder: "Input title"
-                        },
-                        domProps: { value: _vm.titleEdit },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.titleEdit = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
+                _c("form", { staticClass: "form-group" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(4),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.bodyEdit,
-                            expression: "bodyEdit"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          id: "editBody",
-                          rows: "3",
-                          placeholder: "Input body"
-                        },
-                        domProps: { value: _vm.bodyEdit },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.bodyEdit = $event.target.value
-                          }
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.titleEdit,
+                          expression: "titleEdit"
                         }
-                      })
-                    ])
-                  ]
-                )
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        value: "titleEdit",
+                        id: "editTitle",
+                        placeholder: "Input title"
+                      },
+                      domProps: { value: _vm.titleEdit },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.titleEdit = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.bodyEdit,
+                          expression: "bodyEdit"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "editBody",
+                        rows: "3",
+                        placeholder: "Input body"
+                      },
+                      domProps: { value: _vm.bodyEdit },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.bodyEdit = $event.target.value
+                        }
+                      }
+                    })
+                  ])
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
