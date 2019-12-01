@@ -12715,6 +12715,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Articles',
   data: function data() {
@@ -78266,7 +78273,20 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm._m(2)
+                _c("div", { staticClass: "text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [
+                      _c("font-awesome-icon", { attrs: { icon: "plus" } }),
+                      _vm._v(" Add")
+                    ],
+                    1
+                  )
+                ])
               ]
             ),
             _vm._v(" "),
@@ -78311,7 +78331,7 @@ var render = function() {
                     _c(
                       "button",
                       {
-                        staticClass: "btn btn-warning",
+                        staticClass: "btn btn-success",
                         attrs: {
                           type: "button",
                           "data-toggle": "modal",
@@ -78323,7 +78343,11 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("Edit")]
+                      [
+                        _c("font-awesome-icon", { attrs: { icon: "pen" } }),
+                        _vm._v(" Edit")
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
@@ -78337,7 +78361,13 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("Delete")]
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["far", "trash-alt"] }
+                        }),
+                        _vm._v(" Delete")
+                      ],
+                      1
                     )
                   ])
                 ])
@@ -78403,12 +78433,12 @@ var render = function() {
           { staticClass: "modal-dialog", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("form", { staticClass: "form-group" }, [
                   _c("div", { staticClass: "form-group" }, [
-                    _vm._m(4),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -78439,7 +78469,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
-                    _vm._m(5),
+                    _vm._m(4),
                     _vm._v(" "),
                     _c("textarea", {
                       directives: [
@@ -78516,18 +78546,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", { attrs: { for: "body" } }, [_c("h4", [_vm._v("Body")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-right" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Add")]
-      )
-    ])
   },
   function() {
     var _vm = this
@@ -93649,7 +93667,7 @@ Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEdit"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faCopyright"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_3__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faEdit"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faCopyright"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faPen"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faTrashAlt"]);
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"]);
 /**
  * The following block of code may be used to automatically register your

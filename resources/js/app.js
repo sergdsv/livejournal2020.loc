@@ -29,11 +29,11 @@ import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue);
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { faCopyright } from '@fortawesome/free-regular-svg-icons';
+import { faEdit, faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faCopyright, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faEdit, faCopyright);
+library.add(faEdit, faCopyright, faPlus, faPen, faTrashAlt);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

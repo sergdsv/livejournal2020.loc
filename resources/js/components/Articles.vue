@@ -15,7 +15,8 @@
                             <textarea class="form-control" v-model="body" id="body" rows="4" placeholder="Input body" required></textarea>
                         </div>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="submit" class="btn btn-primary">
+                                <font-awesome-icon icon="plus"></font-awesome-icon> Add</button>
                         </div>
                     </form>
                     <b-pagination
@@ -34,8 +35,14 @@
                             <div class="d-flex justify-content-between">
                                     <small class="pt-3">{{ article.created_at }}</small>
                                 <div>
-                                    <button type="button" @click="editArticle(article.id)" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Edit</button>
-                                    <button type="button" @click="deleteArticle(article.id)" class="btn btn-danger">Delete</button>
+                                    <button type="button" @click="editArticle(article.id)"
+                                        class="btn btn-success"
+                                        data-toggle="modal"
+                                        data-target="#exampleModal"
+                                        ><font-awesome-icon icon="pen"></font-awesome-icon> Edit</button>
+                                    <button type="button" @click="deleteArticle(article.id)"
+                                        class="btn btn-danger"
+                                        ><font-awesome-icon :icon="['far', 'trash-alt']"></font-awesome-icon> Delete</button>
                                 </div>
                             </div>
                         </div>
