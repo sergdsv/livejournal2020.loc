@@ -35,10 +35,10 @@
                             <div class="d-flex justify-content-between">
                                     <small class="pt-3">{{ article.created_at }}</small>
                                 <div>
-                                    <button type="button" @click="editArticle(article.id)"
+                                    <button type="button" @click="editArticle(article)"
                                         class="btn btn-success"
                                         data-toggle="modal"
-                                        data-target="#exampleModal"
+                                        data-target="#ArticleEditModal"
                                         ><font-awesome-icon icon="pen"></font-awesome-icon> Edit</button>
                                     <button type="button" @click="deleteArticle(article.id)"
                                         class="btn btn-danger"
@@ -61,7 +61,7 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="ArticleEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -139,8 +139,8 @@
                     hideHeaderClose: false,
                     centered: true
                 })
-                .then(value => {
-                     if (value){
+                .then(confirmDelete => {
+                     if (confirmDelete){
                          axios({method: 'delete', url: '/api/articles/' + id })
                              .then(response => {
                                  this.articles = this.articles.filter(item =>
@@ -149,12 +149,10 @@
                      }
                 });
             },
-            editArticle(id){
-                let article = this.articles.filter(item =>
-                    item.id === id);
-                this.titleEdit = article[0].title;
-                this.bodyEdit = article[0].body;
-                this.idEdit = id
+            editArticle(article){
+                this.titleEdit = article.title;
+                this.bodyEdit = article.body;
+                this.idEdit = article.id;
             },
             updateArticle(){
 

@@ -12771,8 +12771,8 @@ __webpack_require__.r(__webpack_exports__);
         footerClass: 'p-2',
         hideHeaderClose: false,
         centered: true
-      }).then(function (value) {
-        if (value) {
+      }).then(function (confirmDelete) {
+        if (confirmDelete) {
           axios({
             method: 'delete',
             url: '/api/articles/' + id
@@ -12784,13 +12784,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    editArticle: function editArticle(id) {
-      var article = this.articles.filter(function (item) {
-        return item.id === id;
-      });
-      this.titleEdit = article[0].title;
-      this.bodyEdit = article[0].body;
-      this.idEdit = id;
+    editArticle: function editArticle(article) {
+      this.titleEdit = article.title;
+      this.bodyEdit = article.body;
+      this.idEdit = article.id;
     },
     updateArticle: function updateArticle() {
       var _this3 = this;
@@ -78335,11 +78332,11 @@ var render = function() {
                         attrs: {
                           type: "button",
                           "data-toggle": "modal",
-                          "data-target": "#exampleModal"
+                          "data-target": "#ArticleEditModal"
                         },
                         on: {
                           click: function($event) {
-                            return _vm.editArticle(article.id)
+                            return _vm.editArticle(article)
                           }
                         }
                       },
@@ -78420,7 +78417,7 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "exampleModal",
+          id: "ArticleEditModal",
           tabindex: "-1",
           role: "dialog",
           "aria-labelledby": "exampleModalLabel",
