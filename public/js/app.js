@@ -78486,7 +78486,7 @@ var render = function() {
                       staticClass: "form-control",
                       attrs: {
                         id: "editBody",
-                        rows: "3",
+                        rows: "5",
                         placeholder: "Input body"
                       },
                       domProps: { value: _vm.bodyEdit },

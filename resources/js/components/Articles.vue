@@ -79,7 +79,7 @@
 
                             <div class="form-group">
                                 <label for="editBody"><h4>Body</h4></label>
-                                <textarea class="form-control" v-model="bodyEdit" id="editBody" rows="3" placeholder="Input body"></textarea>
+                                <textarea class="form-control" v-model="bodyEdit" id="editBody" rows="5" placeholder="Input body"></textarea>
                             </div>
                         </form>
                     </div>
