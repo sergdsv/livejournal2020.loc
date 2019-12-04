@@ -40,11 +40,7 @@
                         parent_id: this.comment.id
                     } })
                     .then(response => {
-                        if(this.comment.replies.length > 0){
                             this.comment.replies.push(response.data);
-                        }else {
-                            this.comment['replies']['0'] = response.data;
-                        }
                         this.formReply = false
                     })
             }
