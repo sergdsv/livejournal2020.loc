@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Article;
+use App\Comment;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ArticleResource;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,17 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return ArticleResource::collection(Article::orderBy('id', 'desc')->get());
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -27,11 +36,13 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        $article = new Article();
-        $article->title = $request->title;
-        $article->body = $request->body;
-        $article->save();
-        return $article;
+        $comment = new Comment();
+        $comment->body = $request->body;
+        $comment->post_id = $request->post_id;
+        $comment->user_id = $request->user_id;
+        $comment->parent_id = $request->parent_id;
+        $comment->save();
+        return $comment;
     }
 
     /**
@@ -42,10 +53,18 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
+        //
+    }
 
-//        return Article::find($id)->comments->get();
-
-        return new ArticleResource(Article::find($id));
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**
@@ -57,12 +76,7 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $article = Article::find($id);
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
-        $article->save();
-
-        return 'true';
+        //
     }
 
     /**
@@ -73,7 +87,6 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        Article::find($id)->delete();
-        return $id;
+        //
     }
 }

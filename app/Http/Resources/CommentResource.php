@@ -2,11 +2,9 @@
 
 namespace App\Http\Resources;
 
-use App\Article;
-use App\Comment;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ArticleResource extends JsonResource
+class CommentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,13 +16,13 @@ class ArticleResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
+            'post_id' => $this->post_id,
+            'user_id' => $this->user_id,
             'body' => $this->body,
+            'parent_id' => $this->parent_id,
             'created_at' => (string) $this->created_at,
             'updated_at' => (string) $this->updated_at,
-            'comments' => CommentResource::collection(Comment::where(['parent_id' => 0])
-                                                    ->where('post_id', $this->id)
-                                                    ->get()),
+            'replies' => $this->replies,
         ];
     }
 }

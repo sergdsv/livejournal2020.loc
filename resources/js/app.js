@@ -7,11 +7,13 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import {store} from './store';
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
-
-import Articles from './components/Articles.vue'
-
+import Articles from './components/Articles.vue';
+import Article from './components/Article.vue';
+import Comments from './components/Comments.vue';
 const router = new VueRouter({
     mode: 'history',
     routes: [
@@ -20,41 +22,34 @@ const router = new VueRouter({
             name: 'articles',
             component: Articles
         },
+        {
+            path: '/comments',
+            name: 'comments',
+            component: Comments
+        },
+        {
+            path: '/articles/:id',
+            name: 'article',
+            component: Article
+        },
 
     ],
 });
 
 import BootstrapVue from 'bootstrap-vue';
-
 Vue.use(BootstrapVue);
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEdit, faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faPlus, faPen, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCopyright, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-library.add(faEdit, faCopyright, faPlus, faPen, faTrashAlt);
+library.add(faEdit, faCopyright, faPlus, faPen, faTrashAlt, faArrowAltCircleLeft);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 const app = new Vue({
+    store,
     router,
     el: '#app',
 });
