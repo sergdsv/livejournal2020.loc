@@ -40,8 +40,13 @@
                         parent_id: this.comment.id
                     } })
                     .then(response => {
-                            this.comment.replies.push(response.data);
-                        this.formReply = false
+                            if(this.comment.replies === undefined){
+                                this.comment["replies"] = [response.data];
+                            } else {
+                                this.comment.replies.push(response.data);
+                            }
+                        this.formReply = false;
+                        this.bodyComment = '';
                     })
             }
         },
