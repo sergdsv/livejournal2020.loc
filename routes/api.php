@@ -19,6 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('articles', 'Api\ArticlesController');
 Route::apiResource('comments', 'Api\CommentsController');
+Route::apiResource('categories', 'Api\CategoriesController');
+
 //
 //Route::group(['namespace'=>'Api'], function() {
 //    Route::get('/articles', 'ArticlesController@index')->name('articles.index');

@@ -6,6 +6,7 @@
                 </div>
                 <div class="p-3">
                     <form @submit.prevent="addArticle" class="form-group">
+                        <category :categoryId.sync="categoryId"></category>
                         <div class="form-group">
                             <label for="title"><h4>Title</h4></label>
                             <input type="text" v-model="title" class="form-control" id="title" placeholder="Input title" required>
@@ -14,6 +15,7 @@
                             <label for="body"><h4>Body</h4></label>
                             <textarea class="form-control" v-model="body" id="body" rows="4" placeholder="Input body" required></textarea>
                         </div>
+
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary">
                                 <font-awesome-icon icon="plus"></font-awesome-icon> Add</button>
@@ -29,13 +31,14 @@
                 <div v-for="(article, index) in lists" :key="index">
                     <div class="card m-1">
                         <div class="card-body">
+                            <small class="pt-3">Date: {{ article.created_at }}</small>
+                            <small class="pt-3">Category: {{ article.category.title }}</small>
                             <router-link :to="{name: 'article', params: {id: article.id}}">
                                 <h4 class="card-title">{{ article.title }}</h4>
                             </router-link>
                             <hr class="my-4">
                             <p class="card-text">{{ article.body }}</p>
-                            <div class="d-flex justify-content-between">
-                                    <small class="pt-3">{{ article.created_at }}</small>
+                            <div class="text-right">
                                 <div>
                                     <button type="button" @click="editArticle(article)"
                                         class="btn btn-success"
@@ -96,10 +99,12 @@
 </template>
 
 <script>
-
+    import Category from './Category';
     export default {
         name: 'Articles',
-
+        components:{
+            Category
+        },
         data(){
             return{
                 title: '',
@@ -110,7 +115,9 @@
                 idEdit: '',
                 titleEdit: '',
                 bodyEdit: '',
-                storeName: ''
+                storeName: '',
+                categoryId: ''
+
             }
         },
         methods: {
@@ -118,11 +125,14 @@
                 let formData = new FormData();
                 formData.append('title', this.title);
                 formData.append('body', this.body);
+                formData.append('category_id', this.categoryId);
                 axios.post('/api/articles', formData)
                     .then(response => {
+                        console.log(response.data);
                         this.articles.unshift(response.data);
                         this.title = '';
                         this.body = '';
+                        this.categoryId = '';
                         this.currentPage = 1;
                         this.$bvModal.msgBoxOk('New article successfully added!!!', {
                             title: 'Add successfully!',

@@ -40,7 +40,7 @@
                         parent_id: this.comment.id
                     } })
                     .then(response => {
-                            if(this.comment.replies === undefined){
+                            if(typeof this.comment.replies === 'undefined'){
                                 this.comment["replies"] = [response.data];
                             } else {
                                 this.comment.replies.push(response.data);
@@ -64,5 +64,3 @@
         font-size: 12px;
     }
 </style>
-
-

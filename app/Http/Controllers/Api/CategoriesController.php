@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Article;
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\CategoryResource;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,17 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return ArticleResource::collection(Article::orderBy('id', 'desc')->get());
+        return CategoryResource::collection(Category::all());
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -27,12 +39,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        $article = new Article();
-        $article->title = $request->title;
-        $article->body = $request->body;
-        $article->category_id = $request->category_id;
-        $article->save();
-        return new ArticleResource(Article::find($article->id));
+        //
     }
 
     /**
@@ -43,10 +50,18 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
+        //
+    }
 
-//        return Article::find($id)->comments->get();
-
-        return new ArticleResource(Article::find($id));
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**
@@ -58,12 +73,7 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $article = Article::find($id);
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
-        $article->save();
-
-        return 'true';
+        //
     }
 
     /**
@@ -74,7 +84,6 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        Article::find($id)->delete();
-        return $id;
+        //
     }
 }
