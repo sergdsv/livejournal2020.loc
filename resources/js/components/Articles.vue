@@ -31,8 +31,12 @@
                 <div v-for="(article, index) in lists" :key="index">
                     <div class="card m-1">
                         <div class="card-body">
-                            <small class="pt-3">Date: {{ article.created_at }}</small>
-                            <small class="pt-3">Category: {{ article.category.title }}</small>
+                            <div class="pb-2 text-right">
+                                <font-awesome-icon style="color: #ccc;" icon="calendar-alt"></font-awesome-icon>
+                                <small>{{ article.created_at }}</small>
+                                <font-awesome-icon style="color: #ccc;" icon="bars"></font-awesome-icon>
+                                <small >{{ article.category.title }}</small>
+                            </div>
                             <router-link :to="{name: 'article', params: {id: article.id}}">
                                 <h4 class="card-title">{{ article.title }}</h4>
                             </router-link>

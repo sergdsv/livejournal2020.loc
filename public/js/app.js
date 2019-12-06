@@ -12801,6 +12801,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Articles',
@@ -79515,13 +79519,26 @@ var render = function() {
                 "div",
                 { staticClass: "card-body" },
                 [
-                  _c("small", { staticClass: "pt-3" }, [
-                    _vm._v("Date: " + _vm._s(article.created_at))
-                  ]),
-                  _vm._v(" "),
-                  _c("small", { staticClass: "pt-3" }, [
-                    _vm._v("Category: " + _vm._s(article.category.title))
-                  ]),
+                  _c(
+                    "div",
+                    { staticClass: "pb-2 text-right" },
+                    [
+                      _c("font-awesome-icon", {
+                        staticStyle: { color: "#ccc" },
+                        attrs: { icon: "calendar-alt" }
+                      }),
+                      _vm._v(" "),
+                      _c("small", [_vm._v(_vm._s(article.created_at))]),
+                      _vm._v(" "),
+                      _c("font-awesome-icon", {
+                        staticStyle: { color: "#ccc" },
+                        attrs: { icon: "bars" }
+                      }),
+                      _vm._v(" "),
+                      _c("small", [_vm._v(_vm._s(article.category.title))])
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c(
                     "router-link",
@@ -96163,7 +96180,7 @@ Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_6__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faEdit"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faCopyright"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faPen"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faTrashAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faArrowAltCircleLeft"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_6__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faEdit"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faCopyright"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faPen"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faTrashAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faArrowAltCircleLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faCalendarAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faBars"]);
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_9__["FontAwesomeIcon"]); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 var app = new Vue({

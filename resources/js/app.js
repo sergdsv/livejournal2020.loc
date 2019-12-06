@@ -40,10 +40,10 @@ import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue);
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEdit, faPlus, faPen, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faPlus, faPen, faArrowAltCircleLeft, faCalendarAlt, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faCopyright, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-library.add(faEdit, faCopyright, faPlus, faPen, faTrashAlt, faArrowAltCircleLeft);
+library.add(faEdit, faCopyright, faPlus, faPen, faTrashAlt, faArrowAltCircleLeft, faCalendarAlt, faBars);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
