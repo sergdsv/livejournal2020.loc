@@ -1,5 +1,6 @@
 <?php
 
+use App\Article;
 use Illuminate\Http\Request;
 
 /*
@@ -20,6 +21,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('articles', 'Api\ArticlesController');
 Route::apiResource('comments', 'Api\CommentsController');
 Route::apiResource('categories', 'Api\CategoriesController');
+
+Route::get('/search',function(Request $request){
+    $query = $request->query->get('query');
+    $users = Article::search($query)->take(20)->get();
+    return response()->json($users);
+});
+
 
 //
 //Route::group(['namespace'=>'Api'], function() {

@@ -21,6 +21,9 @@
                                 <font-awesome-icon icon="plus"></font-awesome-icon> Add</button>
                         </div>
                     </form>
+                    <div class="form-group">
+                        <Search></Search>
+                    </div>
                     <b-pagination
                         v-model="currentPage"
                         :total-rows="totalRows"
@@ -104,10 +107,12 @@
 
 <script>
     import Category from './Category';
+    import Search from './Search';
     export default {
         name: 'Articles',
         components:{
-            Category
+            Category,
+            Search
         },
         data(){
             return{

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Article;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\ArticleResource;
 use Illuminate\Http\Request;
+use App\Article;
+use Elasticsearch\ClientBuilder;
+use Illuminate\Support\Facades\App;
 
-class ArticlesController extends Controller
+class TestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,21 @@ class ArticlesController extends Controller
      */
     public function index()
     {
+//        Article::createIndex($shards = null, $replicas = null);
+        $client = Article::search('Тест')->take(20)->get();
+//        $client = ClientBuilder::create()->build();
+//        $client = Article::searchByQuery(array('match' => array('title' => 'a')));
+        dd($client);
+    }
 
-        return ArticleResource::collection(Article::orderBy('id', 'desc')->get());
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -28,12 +41,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        $article = new Article();
-        $article->title = $request->title;
-        $article->body = $request->body;
-        $article->category_id = $request->category_id;
-        $article->save();
-        return new ArticleResource(Article::find($article->id));
+        //
     }
 
     /**
@@ -44,10 +52,18 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
+        //
+    }
 
-//        return Article::find($id)->comments->get();
-
-        return new ArticleResource(Article::find($id));
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**
@@ -59,12 +75,7 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $article = Article::find($id);
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
-        $article->save();
-
-        return 'true';
+        //
     }
 
     /**
@@ -75,7 +86,6 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        Article::find($id)->delete();
-        return $id;
+        //
     }
 }
